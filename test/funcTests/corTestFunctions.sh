@@ -27,7 +27,7 @@ IOTALORA_TEST_DIR="${IOTALORA_TEST_DIR:-/tmp/iotalora-bridge-test}"
 brokerStart() {
   brokerStop
 
-  "$IOTALORA_BROKER" --port "$IOTALORA_PORT" --foreground --pretty-print 2 --httpEndpoint "http://localhost:$IOTALORA_PORT" \
+  "$IOTALORA_BROKER" --port "$IOTALORA_PORT" --pretty-print 2 --httpEndpoint "http://localhost:$IOTALORA_PORT" \
                  --database ramDB --bridges "$IOTALORA_PLUGIN" --bridgeConfig "$IOTALORA_TEST_DIR/bridges.json" "$@" \
                  > "$IOTALORA_TEST_DIR/broker.log" 2>&1 &
   echo $! > "$IOTALORA_TEST_DIR/broker.pid"
